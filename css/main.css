@@ -1,0 +1,178 @@
+/* common */
+html, body, div, span, h1, h2, h3, h4, h5, h6,
+p, pre, code, blockquote, a, em, img, strong, hr, ul, ol, li,
+figure {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+body {
+  line-height: 1;
+  background-color: white;
+  font: 16px Helvetica, Helvetica Neue, Arial, sans-serif;
+  max-width: 60em;
+  margin: 0em auto;
+  padding: 2em;
+}
+p, pre, blockquote, ul, ol, figure {
+  margin-bottom: 1em;
+}
+hr {
+  margin: 1em 0;
+}
+h2, h3, h4, h5, h6 {
+  color: green;
+  margin: 1em 0 .67em;
+}
+h1 {
+  font-size: 1.8em;
+  color: blue;
+}
+h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #ddd;
+}
+h3 {
+  font-size: 1.3em;
+}
+a         { color: blue; }
+a:visited { color: purple; }
+a:hover   { color: orange; }
+a:active  { color: green; }
+ul, ol {
+  padding: 0 2em;
+}
+hr {
+  border: 0;
+  border-top: 1px solid silver;
+  height: 0;
+}
+pre, code {
+  font-size: 14px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+}
+pre {
+  padding: .5em .75em;
+}
+code {
+  margin: 0 2px;
+  padding: 0 5px;
+}
+pre code {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 1em;
+  color: #777777;
+}
+img {
+  max-width: 100%;
+}
+
+/* header */
+.header h1 {
+  font-size: 2em;
+}
+.main {
+  font-size: .5em;
+  font-weight: normal;
+  display: block;
+}
+.header a {
+  color: silver;
+  text-decoration: none;
+}
+.header a:hover {
+  color: black;
+  text-shadow: #aaa 2px 2px 3px;
+}
+.header li {
+  padding-right: .6em;
+  display: inline;
+}
+.header ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* content */
+.content {
+  padding: 1em 0;
+  line-height: 1.5;
+}
+.title a { text-decoration: none; }
+.title a:visited { color: blue }
+.title a:hover   { color: darkblue }
+.title a:active  { color: black }
+.fold p {
+  font-size: 1.3em;
+  color: blue;
+}
+.fold p:hover {
+  color: orange;
+  cursor: crosshair;
+}
+.fold-hide {
+  display: none;
+}
+
+/* tag */
+.tag,
+.post-tag {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.tag {
+  line-height: 3;
+}
+.post a,
+.tag a,
+.post-tag a {
+  text-decoration: none;
+  color: blue;
+}
+.post a:hover,
+.tag a:hover,
+.post-tag a:hover {
+  text-decoration: underline;
+  color: #0099ff;
+}
+.tag li,
+.post-tag li {
+  float: left;
+}
+.tag a,
+.post-tag a {
+  margin: 0 2px;
+  padding: 3px 6px;
+  background: #eee;
+  border: 1px dashed #ccc;
+}
+.post-tag a {
+  padding: 0 3px;
+}
+.tag span {
+  vertical-align: super;
+  font-size: .64em;
+}
+
+.next-prev p {
+  margin: 0;
+}
+
+/* footer */
+.footer {
+  font-size: .8em;
+  color: silver;
+  margin-top: -1em;
+}
+.footer a {
+  color: silver;
+}

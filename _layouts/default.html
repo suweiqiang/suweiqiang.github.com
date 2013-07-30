@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} - 明无梦</title>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta name="author" content="{{ site.author.name }}">
+    <meta name="keywords" content="{% for tag in page.tags %}{{tag}}{{','}}{% endfor %}">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/animated_favicon1.gif" type="image/gif">
+    <link rel="alternate" type="application/atom+xml" href="{{ site.atom_path }}" title="Atom feed">
+  </head>
+  <body>
+      <div class="header">
+          <h1>
+            <a href="/">{{ site.title }}</a>
+            <span class="main"><a href="/">{{ site.main }}</a></span>
+          </h1>
+          <hr />
+          <ul>
+            <li><a href="/">主页</a></li>
+            <li><a href="{{ site.archive_path }}">文章</a></li>
+            <li><a href="{{ site.categories_path }}">分类</a></li>
+            <li><a href="{{ site.tags_path }}">标签</a></li>
+            <li><a href="{{ site.rss_path }}">RSS</a></li>
+          </ul>
+          <hr />
+      </div>
+
+      <div class="content">
+        {{ content }}
+      </div>
+
+      <div class="footer">
+        <hr />
+        <span>本站采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a> 进行许可</span><br />
+        <span>&copy;2013-{{ site.time | date: "%Y" }} <a href="http://www.dreamxu.com/">明无梦 - dreamxu.com</a> | </span>
+        <span>Powered by <a href="http://jekyllrb.com/">jekyll</a> | </span>
+        <span>Hosted by <a href="https://github.com/">github</a> | </span>
+        <span>Designed by <a href="http://www.dreamxu.com/">明无梦</a></span>
+      </div>
+
+      {% if page.fold == true %}
+        <script>!window.jQuery && document.write('<script src="/js/jquery-1.10.1.min.js"><\/script>');</script>
+        <script>
+        $(document).ready(function(){
+          $('.fold').next().hide();
+          $('.fold').click(function(){
+            $(this).children('.fold-show').toggle();
+            $(this).children('.fold-hide').toggle();
+            var next = $(this).next();
+            if(!next.is(':animated')){
+              next.slideToggle();
+            }
+          });
+        });
+        </script>
+      {% endif %}
+
+      {% include google_analytics %}
+
+  </body>
+</html>

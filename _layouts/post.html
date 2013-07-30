@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<h1 class="title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+<ul class="post-tag">
+  {% if page.tags[0] == null %}
+    {% if page.lastmod == null %}
+      <li>{{ page.date | date: "%Y-%m-%d" }}</li>
+    {% else %}
+      <li>{{ page.date | date: "%Y-%m-%d" }} | 更新: {{ page.lastmod | date: "%Y-%m-%d" }}</li>
+    {% endif %}
+  {% else %}
+    {% if page.lastmod == null %}
+      <li>{{ page.date | date: "%Y-%m-%d" }} | 标签: </li>
+    {% else %}
+      <li>{{ page.date | date: "%Y-%m-%d" }} | 更新: {{ page.lastmod | date: "%Y-%m-%d" }} | 标签: </li>
+    {% endif %}
+
+    {% for tag in page.tags %}
+      <li><a href="{{ site.tags_path }}#{{ tag }}">{{ tag }}</a></li>
+    {% endfor %}
+  {% endif %}
+</ul>
+
+<hr />
+
+{{ content }}
+
+<br />
+<hr />
+
+<div class="next-prev post">
+  {% if page.previous %}
+  <span>上一篇：</span><a href="{{ page.previous.url }}" title="{{ page.previous.title }}">{{ page.previous.title }}</a><br />
+  {% endif %}
+  {% if page.next %}
+  <span>下一篇：</span><a href="{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title}}</a>
+  {% endif %}
+</div>
+
+<hr />
+{% include disqus %}

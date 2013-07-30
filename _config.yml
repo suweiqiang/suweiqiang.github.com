@@ -1,0 +1,32 @@
+markdown: pandoc
+pandoc:
+  format: html5
+  extensions: [smart, mathjax]
+redcarpet:
+  extensions: ["strikethrough", "fenced_code_blocks", "tables"]
+
+permalink: /:title
+
+pygments: true
+
+title: 明无梦
+main: 编程 自由 快乐 -+ 相信生命 相信奇迹
+author:
+  name: mwum
+  email: mwum@dreamxu.com
+
+archive_path: /archive.html
+categories_path : /categories.html
+tags_path: /tags.html
+atom_path: /atom.xml
+rss_path: /rss.xml
+
+production_url: http://www.dreamxu.com
+
+comments:
+  disqus:
+    short_name: mwum
+
+analytics:
+  google:
+    tracking_id: 'UA-39279084-1'

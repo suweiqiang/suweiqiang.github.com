@@ -1,0 +1,25 @@
+---
+layout: page
+title: 文章列表
+---
+{% for post in site.posts %}
+  {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+  {% if this_year != temp_year %}
+    {% assign temp_year = this_year %}
+
+    {% if forloop.first %}
+    {% else %}
+      </ul>
+    {% endif %}
+
+    <h2>{{this_year}}</h2>
+    <ul class="post">
+  {% endif %}
+
+  <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+
+  {% if forloop.last %}
+    </ul>
+  {% endif %}
+
+{% endfor %}
