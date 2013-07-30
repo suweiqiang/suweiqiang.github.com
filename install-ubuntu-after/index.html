@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>安装 Ubuntu 后要做的一些事 - 明无梦</title>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta name="author" content="mwum">
+    <meta name="keywords" content="ubuntu,install,">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/animated_favicon1.gif" type="image/gif">
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+  </head>
+  <body>
+      <div class="header">
+          <h1>
+            <a href="/">明无梦</a>
+            <span class="main"><a href="/">编程 自由 快乐 -+ 相信生命 相信奇迹</a></span>
+          </h1>
+          <hr />
+          <ul>
+            <li><a href="/">主页</a></li>
+            <li><a href="/archive.html">文章</a></li>
+            <li><a href="/categories.html">分类</a></li>
+            <li><a href="/tags.html">标签</a></li>
+            <li><a href="/rss.xml">RSS</a></li>
+          </ul>
+          <hr />
+      </div>
+
+      <div class="content">
+        <h1 class="title"><a href="/install-ubuntu-after">安装 Ubuntu 后要做的一些事</a></h1>
+<ul class="post-tag">
+  
+    
+      <li>2013-07-14 | 标签: </li>
+    
+
+    
+      <li><a href="/tags.html#ubuntu">ubuntu</a></li>
+    
+      <li><a href="/tags.html#install">install</a></li>
+    
+  
+</ul>
+
+<hr />
+
+<ul>
+<li><p>安装编译环境</p>
+<pre><code>sudo apt-get install build-essential</code></pre></li>
+<li><p>安装 vim</p></li>
+<li><p>开机自动挂载分区<br /> 修改 /etc/fstab 文件，例如添加<br /> UUID=588650B08650907C /media/DATA ntfs defaults,dmask=002,fmask=113,uid=1000,gid=1000 0 0</p></li>
+<li><p>安装 Ubuntu Tweak</p>
+<pre><code>sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get update
+sudo apt-get install ubuntu-tweak</code></pre></li>
+<li><p>修改默认中文字体<br /> 字体可以在 windows 系统下找到一些，C:/Windows/Fonts 目录下<br /> 可在 /etc/fonts/conf.d/69-language-selector-zh-cn.conf 文件中修改默认字体<br /> 用命令 <code>fc-list :lang=zh</code> 查看系统当前可用的中文字体，用 Ubuntu Tweak 修改字体平滑度</p></li>
+<li><p>修改桌面背景图片，grub 选项、顺序、背景等，等一系列系统设置<br /> 使用 Ubuntu Tweak 和 Grub Customizer<br /> Grub Customizer 安装方法如下</p>
+<pre><code>sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+sudo apt-get update
+sudo apt-get install grub-customizer</code></pre>
+<p>或者直接修改配置文件 <a href="https://help.ubuntu.com/community/Grub2#Configuring_GRUB_2">https://help.ubuntu.com/community/Grub2#Configuring_GRUB_2</a></p></li>
+<li><p>安装 truecrypt 加密软件<br /> <a href="http://www.truecrypt.org">http://www.truecrypt.org</a></p></li>
+<li><p>安装 VirtualBox 虚拟机<br /> <a href="https://www.virtualbox.org">https://www.virtualbox.org</a><br /> Oracle VM VirtualBox Extension Pack 装上才能使用 USB 等<br /> 将用户添加到 vboxusers 组，才能访问 USB 设备 <code>sudo adduser username vboxusers</code></p></li>
+<li><p>安装搜狗输入法</p>
+<pre><code>sudo add-apt-repository ppa:fcitx-team/nightly
+sudo apt-get update
+sudo apt-get install fcitx fcitx-sogoupinyin</code></pre></li>
+<li><p>安装思维导图软件 XMind<br /> <a href="http://www.xmind.net">http://www.xmind.net</a></p></li>
+<li><p>安装下载工具 uget + aria2</p>
+<pre><code>sudo add-apt-repository ppa:plushuang-tw/uget-stable
+sudo add-apt-repository ppa:t-tujikawa/ppa
+sudo apt-get update
+sudo apt-get install uget aria2</code></pre>
+配置 uget
+<ul>
+<li>编辑-&gt;设置-&gt;插件-&gt;勾选’启用 aria2 插件’，确保 Arguments 中有 –enable-rpc=true 参数</li>
+<li>打开 uget 在左下的分类中的 Home 右键点击属性，将每台服务器连接数改为16最优（网友如是说）</li>
+<li>chrome 可安装 download assistant 插件，现在停止开发了，不过网上资源还是很多的</li>
+</ul></li>
+<li><p>安装视频播放器 VLC</p>
+<pre><code>sudo apt-get install vlc</code></pre></li>
+<li><p>安装截图软件 Shutter</p>
+<pre><code>sudo apt-get install shutter</code></pre></li>
+<li><p>修改程序关联列表</p>
+<pre><code>sudo vim /usr/share/applications/defaults.list</code></pre></li>
+</ul>
+
+
+<br />
+<hr />
+
+<div class="next-prev post">
+  
+  <span>上一篇：</span><a href="/ubuntu-install-sublime-text" title="Ubuntu 安装 Sublime Text">Ubuntu 安装 Sublime Text</a><br />
+  
+  
+  <span>下一篇：</span><a href="/make-progit" title="制作 progit 电子书">制作 progit 电子书</a>
+  
+</div>
+
+<hr />
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+
+      <div class="footer">
+        <hr />
+        <span>本站采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a> 进行许可</span><br />
+        <span>&copy;2013-2013 <a href="http://www.dreamxu.com/">明无梦 - dreamxu.com</a> | </span>
+        <span>Powered by <a href="http://jekyllrb.com/">jekyll</a> | </span>
+        <span>Hosted by <a href="https://github.com/">github</a> | </span>
+        <span>Designed by <a href="http://www.dreamxu.com/">明无梦</a></span>
+      </div>
+
+      
+
+      <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39279084-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+  </body>
+</html>

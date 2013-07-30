@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>Windows &amp; Ubuntu 配置 Qt5.0 开发环境 - 明无梦</title>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta name="author" content="mwum">
+    <meta name="keywords" content="windows,ubuntu,install,qt,">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/animated_favicon1.gif" type="image/gif">
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+  </head>
+  <body>
+      <div class="header">
+          <h1>
+            <a href="/">明无梦</a>
+            <span class="main"><a href="/">编程 自由 快乐 -+ 相信生命 相信奇迹</a></span>
+          </h1>
+          <hr />
+          <ul>
+            <li><a href="/">主页</a></li>
+            <li><a href="/archive.html">文章</a></li>
+            <li><a href="/categories.html">分类</a></li>
+            <li><a href="/tags.html">标签</a></li>
+            <li><a href="/rss.xml">RSS</a></li>
+          </ul>
+          <hr />
+      </div>
+
+      <div class="content">
+        <h1 class="title"><a href="/windows-ubuntu-install-qt5">Windows &amp; Ubuntu 配置 Qt5.0 开发环境</a></h1>
+<ul class="post-tag">
+  
+    
+      <li>2013-06-05 | 标签: </li>
+    
+
+    
+      <li><a href="/tags.html#windows">windows</a></li>
+    
+      <li><a href="/tags.html#ubuntu">ubuntu</a></li>
+    
+      <li><a href="/tags.html#install">install</a></li>
+    
+      <li><a href="/tags.html#qt">qt</a></li>
+    
+  
+</ul>
+
+<hr />
+
+<h2 id="windows">Windows</h2>
+<p>有很多种方式，看自己喜好了</p>
+<ul>
+<li>MinGW 工具链 + Qt Creator IDE
+<ol type="1">
+<li>安装 <a href="http://qt-project.org/downloads">Qt 5.0.2 for Windows 32-bit (MinGW 4.7, 650 MB)</a> （集成了 <a href="http://sourceforge.net/projects/mingw/files/">MinGW 4.7</a> 和 <a href="http://qt-project.org/downloads">Qt Creator</a>，很方便，安装的时候记得勾选上）</li>
+</ol></li>
+<li>MS 工具链 + Qt Creator IDE
+<ol type="1">
+<li>安装 <a href="http://www.microsoft.com/visualstudio/chs/products/visual-studio-overview">vs2012</a>（Express 版就可以了，注册一下就能免费使用了）</li>
+<li>安装 <a href="http://qt-project.org/downloads">Qt 5.0.2 for Windows 64-bit (VS 2012, 500 MB)</a> （集成了 <a href="http://qt-project.org/downloads">Qt Creator</a>，安装的时候记得勾选）</li>
+<li>安装 <a href="http://msdn.microsoft.com/zh-CN/windows/hardware/gg463009/">控制台调试器 (CDB)</a>（Qt Creator 中要使用的调试器）</li>
+</ol></li>
+<li>MS 工具链 + VS IDE
+<ol type="1">
+<li>安装 <a href="http://www.microsoft.com/visualstudio/chs/products/visual-studio-overview">vs2012</a> （非 Express 版）</li>
+<li>安装 <a href="http://qt-project.org/downloads">Qt 5.0.2 for Windows 64-bit (VS 2012, 500 MB)</a>（使用编译好的就是方便）</li>
+<li>安装 <a href="http://qt-project.org/downloads">Visual Studio Add-in 1.2.1 for Qt5</a>（与VS的集成插件）</li>
+</ol></li>
+</ul>
+<h2 id="ubuntu">ubuntu</h2>
+<ol type="1">
+<li><p>安装 C/C++ 编译环境</p>
+<pre><code>sudo apt-get install build-essential</code></pre></li>
+<li><p><a href="http://qt-project.org/downloads">安装 Qt 5.0.2 for Linux 64-bit (394 MB)</a></p></li>
+<li><p>设置环境变量<br /> 假设 Qt 安装在 /usr/local</p>
+<pre><code>sudo vim /etc/profile (所有用户) 或者 vim ~/.bashrc (当前用户)</code></pre>
+<p>在末尾加入如下内容</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">QTDIR=</span>/usr/local/Qt5.0.2
+<span class="kw">export</span> <span class="ot">PATH=$QTDIR</span>/5.0.2/gcc_64/bin:<span class="ot">$PATH</span>
+<span class="kw">export</span> <span class="ot">PATH=$QTDIR</span>/Tools/QtCreator/bin:<span class="ot">$PATH</span></code></pre>
+<p><code>source /etc/profile</code> 使之生效</p></li>
+<li><p>构建程序的时候会如下出现错误<br /> /usr/bin/ld: cannot find -lGL<br /> collect2: ld returned 1 exit status<br /> 这是因为 Qt5.0 默认将 OpenGL 加入了工程，但是在机器上没有安装 OpenGL<br /> 解决办法就是安装 OpenGL Library</p>
+<pre><code>sudo apt-get install libgl1-mesa-dev</code></pre></li>
+</ol>
+<hr />
+<p>参考：<br /><a href="http://qt-project.org/doc/qt-5.0/qtdoc/platform-details.html">QtDoc</a><br /><a href="http://blog.sina.com.cn/s/blog_c289bdac0101600z.html">Ubuntu Qt5.0 安装后运行失败提示 can’t find -Igl</a></p>
+
+
+<br />
+<hr />
+
+<div class="next-prev post">
+  
+  <span>上一篇：</span><a href="/chinese-eclipse" title="汉化 Eclipse">汉化 Eclipse</a><br />
+  
+  
+  <span>下一篇：</span><a href="/ubuntu-install-lamp" title="Ubuntu 搭建 LAMP(Linux+Apache+MySQL+Php) 环境">Ubuntu 搭建 LAMP(Linux+Apache+MySQL+Php) 环境</a>
+  
+</div>
+
+<hr />
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'mwum'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+
+      <div class="footer">
+        <hr />
+        <span>本站采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a> 进行许可</span><br />
+        <span>&copy;2013-2013 <a href="http://www.dreamxu.com/">明无梦 - dreamxu.com</a> | </span>
+        <span>Powered by <a href="http://jekyllrb.com/">jekyll</a> | </span>
+        <span>Hosted by <a href="https://github.com/">github</a> | </span>
+        <span>Designed by <a href="http://www.dreamxu.com/">明无梦</a></span>
+      </div>
+
+      
+
+      <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39279084-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+  </body>
+</html>
